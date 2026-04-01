@@ -37,4 +37,5 @@ async def ping ( address: IPv4Address , port: PositiveInt , interval: float = .5
 
 
 if __name__ == "__main__" :
-	uvicorn.run ( ":".join ( (PurePath ( __file__ ).stem , "app") ) , port = 8000 , log_level = "info" )
+	uvicorn.run ( ":".join ( (PurePath ( __file__ ).stem , "app") ) ,
+	              host = "0.0.0.0" , port = 8000 , log_level = "info" )
