@@ -3,8 +3,7 @@
 # dependencies = [
 #     "fastapi",
 #     "tcppinglib",
-#     "uvicorn","pydantic",
-#     "pydantic-extra-types",
+#     "uvicorn"
 # ]
 # ///
 from ipaddress import IPv4Address
