@@ -8,13 +8,14 @@
 # ]
 # ///
 from ipaddress import IPv4Address
+from pathlib import PurePath
 
 import uvicorn
 from fastapi import FastAPI
 from pydantic import BaseModel , PositiveInt
 from tcppinglib import async_tcpping , TCPHost
 
-app = FastAPI ( docs_url = '/', redoc_url = None, swagger_ui_oauth2_redirect_url = None )
+app = FastAPI ( docs_url = '/' , redoc_url = None , swagger_ui_oauth2_redirect_url = None )
 
 
 class ResultPing ( BaseModel ) :
@@ -37,4 +38,4 @@ async def ping ( address: IPv4Address , port: PositiveInt , interval: float = .5
 
 
 if __name__ == "__main__" :
-	uvicorn.run ( "main:app" , port = 8000 , log_level = "info" )
+	uvicorn.run ( ":".join ( (PurePath ( __file__ ).stem , "app") ) , port = 8000 , log_level = "info" )
