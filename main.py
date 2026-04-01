@@ -14,7 +14,8 @@ from fastapi import FastAPI
 from pydantic import BaseModel , PositiveInt
 from tcppinglib import async_tcpping , TCPHost
 
-app = FastAPI ( docs_url = '/' , redoc_url = None , swagger_ui_oauth2_redirect_url = None )
+app = FastAPI (title = "Pinger", version = "0.0.0",
+               docs_url = '/' , redoc_url = None , swagger_ui_oauth2_redirect_url = None )
 
 
 class ResultPing ( BaseModel ) :
